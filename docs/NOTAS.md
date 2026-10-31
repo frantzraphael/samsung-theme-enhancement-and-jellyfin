@@ -60,3 +60,11 @@
 - Prefs por usuario: GET/POST /DisplayPreferences/usersettings?userId=<id>&client=emby ; CustomPrefs: enableBackdrops/ThemeSongs/ThemeVideos=false, screensaver=none, enableBlurhash=false, homesection0..6 (smalllibrarytiles, resume, nextup, none...).
 - Servidor ja usa VAAPI (EnableHardwareEncoding true). O app da TV precisa ser reaberto para carregar CSS/prefs.
 - Script: scripts/jellyfin-apply.sh (JF_URL + JF_KEY).
+- Apos CSS+prefs o usuario relata: navegacao do app Jellyfin no Tizen 5.0 AINDA lenta (limite do Chromium da TV 2019).
+
+## Anuncios / ACR (firmware 1400+ Tizen 5.0)
+- NAO existe "Terms & Policy" em Support nem em General > System Manager (itens: Time, Language, Device Name, Samsung Account, Change PIN, Auto Protection Time, Smart Security, Usage Mode).
+- A politica fica no app "Privacy Choices" (jLU2jKvbyN.PrivacyChoices) -> tela "Preference Center" -> rejeitar tudo (Interest-Based Advertising, Viewing Information Services).
+- Lancar app pela API falha enquanto o menu Configuracoes esta aberto; fechar com Exit antes.
+- Support > Software Update e Self Diagnosis ficam DESABILITADOS enquanto um app (Jellyfin) esta em primeiro plano; fechar o app (KEY_EXIT) libera.
+- Cuidado: KEY_RETURN dentro de um submenu de 1o nivel fecha o menu inteiro e as teclas seguintes vao para o app aberto (selecionou um filme no Jellyfin). Em navegacao cega, preferir que o operador posicione o foco e a API faca so toggles.
