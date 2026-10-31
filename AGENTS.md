@@ -32,6 +32,9 @@ this file is for coding agents and is kept in English.
 - `tvkeys.py KEY_… SLEEP<n> TEXT:<str>` / `--launch <appId>` — remote keys, IME text, app launch. First run needs
   **Allow** on the TV; token cached in `scripts/.tv.token` (git-ignored).
 - `install-jellyfin.sh [ip]` — sideload via Docker (macOS: `brew install colima && colima start`).
+- `jellyfin-apply.sh` — `JF_URL` + `JF_KEY` env: pushes `theme/jellyfin-minimal.css` as Custom CSS and sets light display
+  prefs (no backdrops/theme media, 3 home sections) for every user via `/DisplayPreferences/usersettings?client=emby`.
+  Never commit an API key; pass it via env only.
 
 ## Known pitfalls (learned the hard way)
 1. `12345` only opens the Developer Mode dialog when the **Apps** screen has fully loaded (needs internet). If the TV shows

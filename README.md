@@ -111,7 +111,13 @@ Internet, Gallery). *Mover* o Jellyfin para a primeira posição.
 
 ## 6. Tema minimalista do Jellyfin
 
-`theme/jellyfin-minimal.css` → colar em **Dashboard → General → Custom CSS**. Fundo sólido sem blur
+Automático (CSS + preferências de exibição de todos os usuários):
+
+```bash
+JF_URL=http://JELLYFIN_HOST:8096 JF_KEY=<api key> scripts/jellyfin-apply.sh
+```
+
+Manual: `theme/jellyfin-minimal.css` → colar em **Dashboard → General → Custom CSS**. Fundo sólido sem blur
 (mais leve no Tizen), sem abas no topo, cards sem sombra, foco em destaque, fontes maiores.
 Seções da Home se ajustam por usuário em *Perfil → Tela inicial*.
 

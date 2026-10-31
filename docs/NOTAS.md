@@ -48,3 +48,15 @@
 - Tela "Select Server" -> foco em "Add Server" -> KEY_ENTER -> KEY_ENTER (abre IME no campo) -> texto via
   {"method":"ms.remote.control","params":{"Cmd":"<base64 do texto>","DataOfCmd":"base64","TypeOfRemote":"SendInputString"}} + {"TypeOfRemote":"SendInputEnd"}
 - Endereco digitado: JELLYFIN_HOST:8096 (tvkeys.py aceita token TEXT:<string>).
+
+## Smart Hub pela API (Tizen 5.0 / 2019)
+- KEY_MENU NAO abre Configuracoes nesse modelo: abre a Home com foco em Apps. Engrenagem Configuracoes = ponta esquerda da barra (KEY_LEFT ate "Notificacoes", 1 KEY_RIGHT = Configuracoes, KEY_ENTER abre o menu completo com foco em Picture).
+- Menu completo: Picture, Sound, Broadcasting (desabilitado sem antena -> pula), General, Support. De Picture, 2x KEY_DOWN = General quando Broadcasting esta desabilitado.
+- General: Network, External Device Manager, Eco Solution, System Manager, Accessibility, Smart Features (6x KEY_DOWN de Network).
+- Smart Features: Autorun Smart Hub (estava ON -> KEY_ENTER alterna), Autorun Last App (OFF).
+
+## Jellyfin via API (feito com API key, Dashboard > API Keys)
+- Custom CSS: GET/POST /System/Configuration/branding {CustomCss, SplashscreenEnabled:false} -> 204.
+- Prefs por usuario: GET/POST /DisplayPreferences/usersettings?userId=<id>&client=emby ; CustomPrefs: enableBackdrops/ThemeSongs/ThemeVideos=false, screensaver=none, enableBlurhash=false, homesection0..6 (smalllibrarytiles, resume, nextup, none...).
+- Servidor ja usa VAAPI (EnableHardwareEncoding true). O app da TV precisa ser reaberto para carregar CSS/prefs.
+- Script: scripts/jellyfin-apply.sh (JF_URL + JF_KEY).
