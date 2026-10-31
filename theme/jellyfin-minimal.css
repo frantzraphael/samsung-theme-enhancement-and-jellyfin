@@ -1,0 +1,42 @@
+/* Jellyfin — tema minimalista (10-foot UI / TV)
+   Cole em: Dashboard → General → Custom CSS. Funciona no app Tizen e na web. */
+
+:root {
+  --tz-bg: #0e0f12;
+  --tz-surface: #16181d;
+  --tz-text: #e9eaee;
+  --tz-muted: #8d93a1;
+  --tz-accent: #7aa2ff;
+}
+
+/* fundo sólido, sem backdrop/blur pesado — mais fluido na TV */
+.backgroundContainer, .backdropContainer, .skinHeader, .mainDrawer, body {
+  background: var(--tz-bg) !important;
+  background-image: none !important;
+}
+.backdropImage, .backdropContainer img { display: none !important; }
+
+/* cabeçalho enxuto */
+.skinHeader { box-shadow: none !important; border-bottom: 1px solid #1f2229; }
+.headerTabs { display: none !important; }           /* esconde abas Sugestões/Filmes/… no topo */
+
+/* Seções da Home (Adicionados recentemente etc.) NÃO se escondem bem por CSS —
+   configure por usuário em: Perfil → Tela inicial → deixe só "Continuar assistindo",
+   "Próximo episódio" e "Minha mídia". */
+
+/* cards: cantos suaves, sem sombras */
+.cardImageContainer, .cardBox { border-radius: 10px !important; box-shadow: none !important; }
+.cardBox:hover .cardImageContainer, .card:focus .cardImageContainer {
+  outline: 3px solid var(--tz-accent) !important; outline-offset: 2px;
+}
+
+/* tipografia maior para ler do sofá */
+.sectionTitle { font-size: 1.35em !important; font-weight: 500 !important; color: var(--tz-text) !important; }
+.cardText, .listItemBodyText { color: var(--tz-muted) !important; }
+
+/* botões e foco */
+.emby-button, .paper-icon-button-light { border-radius: 8px !important; }
+.button-flat:focus, .emby-button:focus, .listItem:focus { background: #1f2430 !important; }
+
+/* sem animações pesadas */
+*, *::before, *::after { transition-duration: 0.08s !important; animation-duration: 0s !important; }
